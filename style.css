@@ -1,0 +1,207 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS';
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+
+
+:root{
+    --body-color: #dfccba;
+    --nav-color:#dfccba;
+    --side-nav: #f5ede5;
+    --text-color: #474747; 
+    
+}
+
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+
+}
+
+
+/* maybe add dark mode later
+body.dark{
+}
+
+body.dark nav{
+    border: 1px solid #393838;
+
+}
+
+
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+*/
+
+nav{
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+}
+
+
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+
+}
+
+
+.nav-bar .nav-links {
+    display: flex;
+    align-items: center;
+
+}
+
+.nav-bar .nav-links li{
+    margin: 0 10px;
+    list-style: none; 
+
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links li a::before{
+    content:'';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+
+/* edit later to change colour of font not dot
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+
+*/
+
+.x-toggle {
+    display: none;
+}
+
+
+@media (max-width: 1000px) {
+    nav .nav-bar .sidebarOpen{
+        display: block;
+        
+    }
+    
+
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+        color: #f5ede5;
+    }
+
+
+
+    nav.active .menu{
+        left: -0%;
+        
+
+
+    }
+
+   .x-toggle {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .menu .x-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #474747;
+        
+    }
+
+
+    .x-toggle .siderbarClose{
+        color: #474747;
+        font-size: 24px;
+        cursor: pointer;
+
+    }
+
+    .nav-bar .nav-links {
+        flex-direction: column;
+        padding-top: 30px;
+        
+
+    }
+
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+        color: #474747;
+    }
+
+}
